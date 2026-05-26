@@ -131,11 +131,11 @@ SecureVault/
 
 | Login | Dashboard |
 |---|---|
-| ![Login](assets/login.png) | ![Dashboard](assets/dashboard.png) |
+| ![Login](assets/Screenshots/login.png) | ![Dashboard](assets/Screenshots/dashboard.png) |
 
 | Password Manager | File Vault |
 |---|---|
-| ![Password Manager](assets/password.png) | ![File Vault](assets/filevault.png) |
+| ![Password Manager](assets//Screenshots/password.png) | ![File Vault](assets//Screenshots/filevault.png) |
 
 
 ##Future Scope
