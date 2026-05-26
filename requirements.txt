@@ -1,0 +1,11 @@
+# SecureVault — Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# GUI Framework
+customtkinter>=5.2.0
+
+# Cryptography (AES-256, PBKDF2, HMAC)
+cryptography>=42.0.0
+
+# Pillow for image/icon handling in CustomTkinter
+Pillow>=10.0.0
