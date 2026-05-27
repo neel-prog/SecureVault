@@ -16,15 +16,14 @@ class Dashboard(ctk.CTkFrame):
             font=("Arial", 20, "bold")
         ).pack(pady=30)
 
-        self.nav_btn(sidebar, "🏠 Dashboard", app.show_dashboard)
-        self.nav_btn(sidebar, "🔑 Passwords", app.show_passwords)
-        self.nav_btn(sidebar, "📁 File Vault", app.show_vault)
-        self.nav_btn(sidebar, "🚪 Logout", app.show_login)
+        self.nav_btn(sidebar, "Dashboard", app.show_dashboard)
+        self.nav_btn(sidebar, "Passwords", app.show_passwords)
+        self.nav_btn(sidebar, "File Vault", app.show_vault)
+        self.nav_btn(sidebar, "Logout", app.show_login)
 
         main = ctk.CTkFrame(self)
         main.pack(side="right", fill="both", expand=True)
 
-        # ===== Header =====
         header = ctk.CTkFrame(main, height=80)
         header.pack(fill="x", padx=20, pady=10)
 
