@@ -29,14 +29,12 @@ class LoginFrame(ctk.CTkFrame):
             self.app.login_success(pwd)
 
         elif "$" not in data[0]:
-            # Old SHA-256 hash — migrate on successful login
             if hashlib.sha256(pwd.encode()).hexdigest() == data[0]:
                 cur.execute("UPDATE master SET password=?", (hash_password(pwd),))
                 conn.commit()
                 self.app.login_success(pwd)
 
         else:
-            # New PBKDF2 hash
             if verify_password(pwd, data[0]):
                 self.app.login_success(pwd)
 
