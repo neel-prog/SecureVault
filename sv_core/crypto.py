@@ -4,7 +4,6 @@ import os
 import base64
 from cryptography.fernet import Fernet
 
-# ── Encryption (unchanged) ─────────────────────────────────────────────────
 
 def generate_key(password):
     return base64.urlsafe_b64encode(hashlib.sha256(password.encode()).digest())
@@ -15,7 +14,6 @@ def encrypt(text, password):
 def decrypt(token, password):
     return Fernet(generate_key(password)).decrypt(token).decode()
 
-# ── PBKDF2 Password Hashing (new) ──────────────────────────────────────────
 
 PBKDF2_HASH_ALGO  = "sha256"
 PBKDF2_ITERATIONS = 600_000

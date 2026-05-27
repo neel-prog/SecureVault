@@ -10,7 +10,6 @@ class PasswordUI(AppLayout):
     def __init__(self, master, app):
         super().__init__(master, app, title="Password Manager")
 
-        # ===== INPUT SECTION =====
         form = ctk.CTkFrame(self.content)
         form.pack(fill="x", pady=10)
 

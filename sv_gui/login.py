@@ -24,7 +24,6 @@ class LoginFrame(ctk.CTkFrame):
         data = cur.fetchone()
 
         if data is None:
-            # Fresh setup — store as PBKDF2
             cur.execute("INSERT INTO master VALUES(?)", (hash_password(pwd),))
             conn.commit()
             self.app.login_success(pwd)

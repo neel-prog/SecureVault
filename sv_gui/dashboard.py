@@ -7,7 +7,6 @@ class Dashboard(ctk.CTkFrame):
         super().__init__(master)
         self.app = app
 
-        # ================= SIDEBAR =================
         sidebar = ctk.CTkFrame(self, width=220, corner_radius=0)
         sidebar.pack(side="left", fill="y")
 
@@ -22,7 +21,6 @@ class Dashboard(ctk.CTkFrame):
         self.nav_btn(sidebar, "📁 File Vault", app.show_vault)
         self.nav_btn(sidebar, "🚪 Logout", app.show_login)
 
-        # ================= MAIN AREA =================
         main = ctk.CTkFrame(self)
         main.pack(side="right", fill="both", expand=True)
 
@@ -42,35 +40,31 @@ class Dashboard(ctk.CTkFrame):
             font=("Arial", 14)
         ).pack(anchor="w", padx=10)
 
-        # ===== Content Area =====
         content = ctk.CTkFrame(main)
         content.pack(fill="both", expand=True, padx=20, pady=10)
 
-        # Grid layout
         content.grid_columnconfigure((0, 1), weight=1)
 
-        # ===== Cards =====
         self.create_card(
-            content, "🔑 Saved Passwords",
+            content, "Saved Passwords",
             self.count_passwords(), 0, 0
         )
 
         self.create_card(
-            content, "📁 Vault Files",
+            content, "Vault Files",
             self.count_files(), 0, 1
         )
 
         self.create_card(
-            content, "🔒 Security Status",
+            content, "Security Status",
             "Active", 1, 0
         )
 
         self.create_card(
-            content, "⏱ Auto Lock",
+            content, "Auto Lock",
             "Enabled", 1, 1
         )
 
-    # ---------- NAV BUTTON ----------
     def nav_btn(self, parent, text, command):
         ctk.CTkButton(
             parent,
@@ -80,7 +74,6 @@ class Dashboard(ctk.CTkFrame):
             height=40
         ).pack(pady=6)
 
-    # ---------- CARD ----------
     def create_card(self, parent, title, value, row, col):
         frame = ctk.CTkFrame(parent, height=120)
         frame.grid(row=row, column=col, padx=10, pady=10, sticky="nsew")
@@ -97,7 +90,6 @@ class Dashboard(ctk.CTkFrame):
             font=("Arial", 28, "bold")
         ).pack(anchor="w", padx=15)
 
-    # ---------- COUNT PASSWORDS ----------
     def count_passwords(self):
         conn = connect()
         cur = conn.cursor()
@@ -106,7 +98,6 @@ class Dashboard(ctk.CTkFrame):
         conn.close()
         return count
 
-    # ---------- COUNT FILES ----------
     def count_files(self):
         path = os.path.join(os.getenv("APPDATA"), "SecureVault", "files")
         if os.path.exists(path):
