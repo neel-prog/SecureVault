@@ -32,7 +32,6 @@ class PasswordUI(AppLayout):
 
         self.pwd.bind("<KeyRelease>", self.update_strength)
 
-        # ===== LIST =====
         self.container = ctk.CTkScrollableFrame(self.content)
         self.container.pack(fill="both", expand=True)
 
